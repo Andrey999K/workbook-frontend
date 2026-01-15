@@ -1,26 +1,44 @@
-import Image from "next/image";
-import { ProgressBar } from "@/app/components/ProgressBar";
+import { HeaderQuests } from "@/app/components/HeaderQuests";
+import { TaskRow } from "@/app/components/TaskRow";
+import { TaskRowType } from "@/app/types/TaskRow";
 
 export default function Page() {
+  const tasks: TaskRowType[] = [
+    {
+      id: 1,
+      title: "Сделать дизайн",
+      description: "Зафиналить MVP",
+      checked: false,
+    },
+    {
+      id: 2,
+      title: "Сделать дизайн",
+      description: "Зафиналить MVP",
+      checked: true,
+    },
+    {
+      id: 3,
+      title: "Сделать дизайн",
+      description: "Зафиналить MVP",
+      checked: false,
+    },
+    {
+      id: 4,
+      title: "Сделать дизайн",
+      description: "Зафиналить MVP",
+      checked: false,
+    },
+  ];
+
   return (
-    <div className="w-full max-w-sm mx-auto border-gray-500 border-solid border-2 min-h-screen p-4">
-      <div className="flex items-center gap-2">
-        <div className="w-full max-w-12">
-          <div className="relative w-12 h-12 bg-orange-500 rounded-full overflow-hidden">
-            <Image
-              src="/avatar.jpg"
-              alt="avatar"
-              fill
-              className="object-cover"
-            />
-          </div>
-        </div>
-        <div className="w-full">
-          <div className="flex items-center gap-2 justify-between w-full mb-[5px] font-bold">
-            <span>Андрей</span>
-            <span>1 уровень</span>
-          </div>
-          <ProgressBar percent={80} />
+    <div className="w-full max-w-sm mx-auto min-h-screen p-4">
+      <HeaderQuests />
+      <div className="mt-5">
+        <h2 className="font-bold text-2xl text-gray-500">Мои Квесты</h2>
+        <div className="mt-4 flex flex-col gap-3">
+          {tasks.map((task) => (
+            <TaskRow key={task.id} data={task} />
+          ))}
         </div>
       </div>
     </div>
