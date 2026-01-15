@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cormorant_Infant, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
+const cormorantInfant = Cormorant_Infant({
+  subsets: ["latin", "cyrillic"], // для русского языка
+  weight: ["300", "400", "500", "600", "700"], // доступные начертания
+  variable: "--font-cormorant", // для CSS переменной
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${cormorantInfant.className} antialiased min-h-screen bg-gradient-to-br from-[#080E1C] to-[#183060] text-white`}
       >
         {children}
       </body>
