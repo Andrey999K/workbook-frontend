@@ -6,32 +6,6 @@ import { AddQuestButton } from "@/app/components/AddQuestButton";
 import { useQuestsStore } from "@/app/store";
 
 export default function QuestsPage() {
-  // const tasks: TaskRowType[] = [
-  //   {
-  //     id: 1,
-  //     title: "Сделать дизайн",
-  //     description: "Зафиналить MVP",
-  //     checked: false,
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Сделать дизайн",
-  //     description: "Зафиналить MVP",
-  //     checked: true,
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Сделать дизайн",
-  //     description: "Зафиналить MVP",
-  //     checked: false,
-  //   },
-  //   {
-  //     id: 4,
-  //     title: "Сделать дизайн",
-  //     description: "Зафиналить MVP",
-  //     checked: false,
-  //   },
-  // ];
   const tasks = useQuestsStore((state) => state.tasks);
 
   return (

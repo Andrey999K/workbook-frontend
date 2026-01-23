@@ -1,19 +1,19 @@
 "use client";
 
 import { TaskRowType } from "@/app/types/TaskRow";
-import { useQuestsStore } from "@/app/store";
+import { useQuestsStore, useUserStore } from "@/app/store";
 
 type TaskRowProps = {
   data: TaskRowType;
 };
 
 export const TaskRow = ({ data }: TaskRowProps) => {
-  // const [checked, setChecked] = useState(data.checked);
   const removeTask = useQuestsStore((state) => state.removeTask);
+  const addExp = useUserStore((state) => state.addExp);
 
   const handleClick = () => {
     removeTask(data.id);
-    // setChecked((prevState) => !prevState);
+    addExp(120);
   };
 
   return (

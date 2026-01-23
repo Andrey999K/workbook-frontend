@@ -6,6 +6,6 @@ interface UserState {
 }
 
 export const useUserStore = create<UserState>((set) => ({
-  exp: 25000,
+  exp: 800,
   addExp: (countExp) => set((state) => ({ exp: state.exp + countExp })),
 }));
