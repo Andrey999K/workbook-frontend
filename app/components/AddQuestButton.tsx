@@ -2,6 +2,7 @@
 
 import { Icon } from "@/app/components/Icon";
 import { useState } from "react";
+import { Input } from "@/app/components/Input";
 
 export const AddQuestButton = () => {
   const [openWindow, setOpenWindow] = useState(false);
@@ -29,6 +30,10 @@ export const AddQuestButton = () => {
     <div className="fixed left-4 right-4 top-16 bottom-4 rounded-2xl p-5 bg-[#2B3F68] text-white">
       <div className="flex flex-col items-center gap-6 h-full">
         <h3 className="font-bold text-[32px]">Добавить квест</h3>
+        <div className="flex flex-col gap-5 w-full">
+          <Input label="Название квеста" />
+          <Input label="Описание квеста" />
+        </div>
         <div className="flex gap-2 w-full mt-auto">
           <button className="w-full bg-[#34C759] text-[#0F0E2D] font-bold rounded-lg cursor-pointer">
             Добавить квест
