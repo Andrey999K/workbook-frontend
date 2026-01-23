@@ -1,8 +1,9 @@
 import { HeaderQuests } from "@/app/components/HeaderQuests";
 import { TaskRow } from "@/app/components/TaskRow";
 import { TaskRowType } from "@/app/types/TaskRow";
+import { AddQuestButton } from "@/app/components/AddQuestButton";
 
-export default function Page() {
+export default function QuestsPage() {
   const tasks: TaskRowType[] = [
     {
       id: 1,
@@ -41,6 +42,7 @@ export default function Page() {
           ))}
         </div>
       </div>
+      <AddQuestButton />
     </div>
   );
 }

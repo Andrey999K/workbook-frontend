@@ -39,7 +39,7 @@ export const TaskRow = ({ data }: TaskRowProps) => {
           </svg>
         </div>
       </label>
-      <div className="-my-[3px]">
+      <div className="-my-[6px]">
         <h3 className="font-bold text-[18px]">{data.title}</h3>
         <p>{data.description}</p>
       </div>
