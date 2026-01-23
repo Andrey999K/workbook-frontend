@@ -1,7 +1,14 @@
+"use client";
+
 import Image from "next/image";
 import { ProgressBar } from "@/app/components/ProgressBar";
+import { useUserStore } from "@/app/store";
+import { getLevel } from "@/app/utils/getLevel";
 
 export const HeaderQuests = () => {
+  const userExp = useUserStore((state) => state.exp);
+  const { level, progressLevel } = getLevel(userExp);
+
   return (
     <div className="flex items-center gap-2">
       <div className="w-full max-w-12">
@@ -12,9 +19,9 @@ export const HeaderQuests = () => {
       <div className="w-full">
         <div className="flex items-center gap-2 justify-between w-full mb-[5px] font-bold">
           <span>Андрей</span>
-          <span>1 уровень</span>
+          <span>{level} уровень</span>
         </div>
-        <ProgressBar percent={80} />
+        <ProgressBar percent={progressLevel} />
       </div>
     </div>
   );

@@ -1,17 +1,19 @@
 "use client";
 
 import { TaskRowType } from "@/app/types/TaskRow";
-import { useState } from "react";
+import { useQuestsStore, useUserStore } from "@/app/store";
 
 type TaskRowProps = {
   data: TaskRowType;
 };
 
 export const TaskRow = ({ data }: TaskRowProps) => {
-  const [checked, setChecked] = useState(data.checked);
+  const removeTask = useQuestsStore((state) => state.removeTask);
+  const addExp = useUserStore((state) => state.addExp);
 
   const handleClick = () => {
-    setChecked((prevState) => !prevState);
+    removeTask(data.id);
+    addExp(120);
   };
 
   return (
@@ -20,7 +22,7 @@ export const TaskRow = ({ data }: TaskRowProps) => {
         <input
           type="checkbox"
           className="sr-only"
-          checked={checked}
+          checked={data.checked}
           onChange={handleClick}
         />
         <div className="w-6 h-6 border-2 border-gray-400 rounded bg-transparent flex items-center justify-center">
@@ -39,7 +41,7 @@ export const TaskRow = ({ data }: TaskRowProps) => {
           </svg>
         </div>
       </label>
-      <div className="-my-[3px]">
+      <div className="-my-[6px]">
         <h3 className="font-bold text-[18px]">{data.title}</h3>
         <p>{data.description}</p>
       </div>
