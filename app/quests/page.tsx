@@ -40,9 +40,11 @@ export default function QuestsPage() {
       <div className="mt-5">
         <h2 className="font-bold text-2xl text-gray-500">Мои Квесты</h2>
         <div className="mt-4 flex flex-col gap-3">
-          {tasks.map((task) => (
-            <TaskRow key={task.id} data={task} />
-          ))}
+          {tasks.length !== 0 ? (
+            tasks.map((task) => <TaskRow key={task.id} data={task} />)
+          ) : (
+            <h3>Квестов нет</h3>
+          )}
         </div>
       </div>
       <AddQuestButton />

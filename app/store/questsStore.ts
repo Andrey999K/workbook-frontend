@@ -20,7 +20,7 @@ const initialTasks: TaskRowType[] = [
     id: 2,
     title: "Сделать дизайн",
     description: "Зафиналить MVP",
-    checked: true,
+    checked: false,
   },
   {
     id: 3,
