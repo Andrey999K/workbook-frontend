@@ -1,17 +1,33 @@
 "use client";
 
 import { Icon } from "@/app/components/Icon";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { Input } from "@/app/components/Input";
+import { useQuestsStore } from "@/app/store";
 
 export const AddQuestButton = () => {
   const [openWindow, setOpenWindow] = useState(false);
+  const [newTask, setNewTask] = useState({
+    title: "",
+    description: "",
+    checked: false,
+  });
+  const addTask = useQuestsStore((state) => state.addTask);
 
   const handleOpenWindow = () => {
     setOpenWindow(true);
   };
 
   const handleCloseWindow = () => {
+    setOpenWindow(false);
+  };
+
+  const handleInputName = (e: ChangeEvent<HTMLInputElement>) => {
+    setNewTask((prevState) => ({ ...prevState, title: e.target.value }));
+  };
+
+  const handleCreateQuest = () => {
+    addTask(newTask);
     setOpenWindow(false);
   };
 
@@ -35,11 +51,13 @@ export const AddQuestButton = () => {
       <div className="flex flex-col items-center gap-6 h-full">
         <h3 className="font-bold text-[32px]">Добавить квест</h3>
         <div className="flex flex-col gap-5 w-full">
-          <Input label="Название квеста" />
-          <Input label="Описание квеста" />
+          <Input label="Название квеста" onChange={handleInputName} />
         </div>
         <div className="flex gap-2 w-full mt-auto">
-          <button className="w-full bg-[#34C759] text-[#0F0E2D] font-bold rounded-lg cursor-pointer">
+          <button
+            className="w-full bg-[#34C759] text-[#0F0E2D] font-bold rounded-lg cursor-pointer"
+            onClick={handleCreateQuest}
+          >
             Добавить квест
           </button>
           <button
