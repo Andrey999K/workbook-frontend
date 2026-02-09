@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { ProgressBar } from "@/app/components/ProgressBar";
-import { useUserStore } from "@/app/store";
-import { getLevel } from "@/app/utils/getLevel";
+import { ProgressBar } from "@/src/components/ProgressBar";
+import { useUserStore } from "../store";
+import { getLevel } from "@/src/utils/getLevel";
 
 export const HeaderQuests = () => {
   const userExp = useUserStore((state) => state.exp);
