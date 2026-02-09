@@ -5,13 +5,15 @@ import { ChangeEvent, useState } from "react";
 import { Input } from "@/src/components/Input";
 import { useQuestsStore } from "../store";
 
+const initialTaskState = {
+  title: "",
+  description: "",
+  checked: false,
+};
+
 export const AddQuestButton = () => {
   const [openWindow, setOpenWindow] = useState(false);
-  const [newTask, setNewTask] = useState({
-    title: "",
-    description: "",
-    checked: false,
-  });
+  const [newTask, setNewTask] = useState(initialTaskState);
   const addTask = useQuestsStore((state) => state.addTask);
 
   const handleOpenWindow = () => {
@@ -30,6 +32,7 @@ export const AddQuestButton = () => {
     if (!newTask.title.trim()) return;
 
     addTask(newTask);
+    setNewTask(initialTaskState); // Очистка формы
     setOpenWindow(false);
   };
 
