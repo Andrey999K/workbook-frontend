@@ -1,7 +1,7 @@
 "use client";
 
-import { TaskRowType } from "@/app/types/TaskRow";
-import { useQuestsStore, useUserStore } from "@/app/store";
+import { TaskRowType } from "@/src/types/TaskRow";
+import { useQuestsStore, useUserStore } from "../store";
 
 type TaskRowProps = {
   data: TaskRowType;
