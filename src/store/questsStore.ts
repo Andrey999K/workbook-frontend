@@ -41,11 +41,9 @@ export const useQuestsStore = create<QuestsState>((set) => ({
 
   addTask: (task) =>
     set((state) => {
-      const tasksMass = state.tasks.sort(
-        (a: TaskRowType, b: TaskRowType) => a.id - b.id
-      );
-      const lastElemId = tasksMass[tasksMass.length - 1].id;
-      return { tasks: [...state.tasks, { id: lastElemId + 1, ...task }] };
+      const maxId =
+        state.tasks.length > 0 ? Math.max(...state.tasks.map((t) => t.id)) : 0;
+      return { tasks: [...state.tasks, { id: maxId + 1, ...task }] };
     }),
 
   removeTask: (id) =>
