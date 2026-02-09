@@ -1,9 +1,9 @@
 "use client";
 
-import { HeaderQuests } from "@/app/components/HeaderQuests";
-import { TaskRow } from "@/app/components/TaskRow";
-import { AddQuestButton } from "@/app/components/AddQuestButton";
-import { useQuestsStore } from "@/app/store";
+import { HeaderQuests } from "@/src/components/HeaderQuests";
+import { TaskRow } from "@/src/components/TaskRow";
+import { AddQuestButton } from "@/src/components/AddQuestButton";
+import { useQuestsStore } from "../../store";
 
 export default function QuestsPage() {
   const tasks = useQuestsStore((state) => state.tasks);

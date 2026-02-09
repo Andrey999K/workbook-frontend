@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { TaskRowType } from "@/app/types/TaskRow";
+import { TaskRowType } from "@/src/types/TaskRow";
 
 interface QuestsState {
   tasks: TaskRowType[];

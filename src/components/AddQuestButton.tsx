@@ -1,9 +1,9 @@
 "use client";
 
-import { Icon } from "@/app/components/Icon";
+import { Icon } from "@/src/components/Icon";
 import { ChangeEvent, useState } from "react";
-import { Input } from "@/app/components/Input";
-import { useQuestsStore } from "@/app/store";
+import { Input } from "@/src/components/Input";
+import { useQuestsStore } from "../store";
 
 export const AddQuestButton = () => {
   const [openWindow, setOpenWindow] = useState(false);
