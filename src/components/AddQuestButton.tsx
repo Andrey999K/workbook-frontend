@@ -27,6 +27,8 @@ export const AddQuestButton = () => {
   };
 
   const handleCreateQuest = () => {
+    if (!newTask.title.trim()) return;
+
     addTask(newTask);
     setOpenWindow(false);
   };
