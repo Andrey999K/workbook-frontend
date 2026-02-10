@@ -1,19 +1,21 @@
 import { InputProps } from "@/src/types/InputProps";
 
-export const Input = ({
+export const Textarea = ({
   label,
   placeholder,
   onChange,
-}: InputProps<HTMLInputElement>) => {
+}: InputProps<HTMLTextAreaElement>) => {
   return (
-    <label className="w-full flex flex-col gap-2">
-      {!!label && <span>Название квеста</span>}
-      <input
-        type="text"
+    <div>
+      <textarea
         className="border-[1px] border-solid border-[#EFEFEF]/30 w-full py-1 px-2 rounded-xs outline-none"
+        name=""
+        id=""
+        cols={30}
+        rows={10}
         placeholder={placeholder || label || ""}
         onChange={onChange}
-      />
-    </label>
+      ></textarea>
+    </div>
   );
 };
