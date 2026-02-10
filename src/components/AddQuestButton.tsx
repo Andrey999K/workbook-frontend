@@ -29,6 +29,10 @@ export const AddQuestButton = () => {
     setNewTask((prevState) => ({ ...prevState, title: e.target.value }));
   };
 
+  const handleInputDescription = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setNewTask((prevState) => ({ ...prevState, description: e.target.value }));
+  };
+
   const handleCreateQuest = () => {
     if (!newTask.title.trim()) return;
 
@@ -57,8 +61,8 @@ export const AddQuestButton = () => {
       <div className="flex flex-col items-center gap-6 h-full">
         <h3 className="font-bold text-[32px]">Добавить квест</h3>
         <div className="flex flex-col gap-5 w-full">
-          <Input label="Название квеста" onChange={handleInputName} />
-          <Textarea />
+          <Input label="Название" onChange={handleInputName} />
+          <Textarea label="Описание" onChange={handleInputDescription} />
         </div>
         <div className="flex gap-2 w-full mt-auto">
           <button
