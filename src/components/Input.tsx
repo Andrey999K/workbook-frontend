@@ -1,12 +1,10 @@
-import { ChangeEvent } from "react";
+import { InputProps } from "@/src/types/InputProps";
 
-type InputProps = {
-  label?: string;
-  placeholder?: string;
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void;
-};
-
-export const Input = ({ label, placeholder, onChange }: InputProps) => {
+export const Input = ({
+  label,
+  placeholder,
+  onChange,
+}: InputProps<HTMLInputElement>) => {
   return (
     <label className="w-full flex flex-col gap-2">
       {!!label && <span>Название квеста</span>}
