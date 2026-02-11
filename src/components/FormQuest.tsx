@@ -46,8 +46,16 @@ export const FormQuest = ({
       <div className="flex flex-col items-center gap-6 h-full">
         <h3 className="font-bold text-[32px]">{title}</h3>
         <div className="flex flex-col gap-5 w-full">
-          <Input label="Название" onChange={handleInputName} />
-          <Textarea label="Описание" onChange={handleInputDescription} />
+          <Input
+            value={data?.title}
+            label="Название"
+            onChange={handleInputName}
+          />
+          <Textarea
+            value={data?.description}
+            label="Описание"
+            onChange={handleInputDescription}
+          />
         </div>
         <div className="flex gap-2 w-full mt-auto">
           <button
