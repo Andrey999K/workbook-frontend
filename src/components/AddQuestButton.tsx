@@ -1,19 +1,13 @@
 "use client";
 
 import { Icon } from "@/src/components/Icon";
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 import { useQuestsStore } from "../store";
-import { FormQuest } from "@/src/components/formQuest";
-
-const initialTaskState = {
-  title: "",
-  description: "",
-  checked: false,
-};
+import { FormQuest } from "@/src/components/FormQuest";
+import { TaskRowType } from "@/src/types/TaskRow";
 
 export const AddQuestButton = () => {
   const [openWindow, setOpenWindow] = useState(false);
-  const [newTask, setNewTask] = useState(initialTaskState);
   const addTask = useQuestsStore((state) => state.addTask);
 
   const handleOpenWindow = () => {
@@ -24,19 +18,8 @@ export const AddQuestButton = () => {
     setOpenWindow(false);
   };
 
-  const handleInputName = (e: ChangeEvent<HTMLInputElement>) => {
-    setNewTask((prevState) => ({ ...prevState, title: e.target.value }));
-  };
-
-  const handleInputDescription = (e: ChangeEvent<HTMLTextAreaElement>) => {
-    setNewTask((prevState) => ({ ...prevState, description: e.target.value }));
-  };
-
-  const handleCreateQuest = () => {
-    if (!newTask.title.trim()) return;
-
-    addTask(newTask);
-    setNewTask(initialTaskState); // Очистка формы
+  const handleCreateQuest = (task: Omit<TaskRowType, "id">) => {
+    addTask(task);
     setOpenWindow(false);
   };
 
@@ -59,9 +42,7 @@ export const AddQuestButton = () => {
     <FormQuest
       title="Добавить квест"
       buttonText="Добавить квест"
-      onInputName={handleInputName}
-      onInputDescription={handleInputDescription}
-      onCreateQuest={handleCreateQuest}
+      onSubmit={handleCreateQuest}
       onCloseWindow={handleCloseWindow}
     />
   );
