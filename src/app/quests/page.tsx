@@ -6,6 +6,7 @@ import { AddQuestButton } from "@/src/components/AddQuestButton";
 import { useQuestsStore } from "../../store";
 import { useHydration } from "@/src/hooks/useHydration";
 import { Loader } from "@/src/components/Loader";
+import { Wrapper } from "@/src/components/Wrapper";
 
 export default function QuestsPage() {
   const tasks = useQuestsStore((state) => state.tasks);
@@ -24,13 +25,13 @@ export default function QuestsPage() {
   };
 
   return (
-    <div className="w-full max-w-sm mx-auto min-h-screen p-4">
+    <Wrapper>
       <HeaderQuests />
       <div className="mt-5">
         <h2 className="font-bold text-2xl text-gray-500">Мои Квесты</h2>
         <div className="mt-4 flex flex-col gap-3">{renderQuests()}</div>
       </div>
       <AddQuestButton />
-    </div>
+    </Wrapper>
   );
 }
