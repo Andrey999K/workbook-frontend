@@ -3,6 +3,7 @@ import { Textarea } from "@/src/components/Textarea";
 import { Icon } from "@/src/components/Icon";
 import { ChangeEvent, MouseEvent, useState } from "react";
 import { TaskRowType } from "@/src/types/TaskRow";
+import { Button } from "@/src/components/Button";
 
 type TaskInput = Omit<TaskRowType, "id">;
 
@@ -65,12 +66,7 @@ export const FormQuest = ({
             />
           </div>
           <div className="flex gap-2 w-full mt-auto">
-            <button
-              className="w-full bg-[#34C759] text-[#0F0E2D] font-bold rounded-lg cursor-pointer"
-              onClick={handleSubmit}
-            >
-              {buttonText}
-            </button>
+            <Button onClick={handleSubmit}>{buttonText}</Button>
             <button
               className="w-full max-w-[56px] h-[56px] bg-[#D9D9D9]/10 flex items-center justify-center rounded-lg
           cursor-pointer"

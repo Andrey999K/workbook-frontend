@@ -68,7 +68,10 @@ export const TaskRow = ({ data }: TaskRowProps) => {
             </svg>
           </div>
         </label>
-        <div className="-my-[6px] cursor-pointer" onClick={handleEditTask}>
+        <div
+          className="-my-[6px] cursor-pointer w-full"
+          onClick={handleEditTask}
+        >
           <h3 className="font-bold text-[18px]">{data.title}</h3>
           <p>{data.description}</p>
         </div>

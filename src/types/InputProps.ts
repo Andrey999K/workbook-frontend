@@ -5,4 +5,5 @@ export type InputProps<T> = {
   placeholder?: string;
   onChange?: (e: ChangeEvent<T>) => void;
   value?: string;
+  type?: "text" | "password";
 };
