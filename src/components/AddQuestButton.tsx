@@ -33,7 +33,7 @@ export const AddQuestButton = () => {
         onClick={handleOpenWindow}
       >
         <div className="absolute bg-[#D9D9D9] opacity-10 w-full h-full"></div>
-        <Icon name="plus" width={18} height={18} />
+        <Icon name="plus" />
       </button>
     );
   }
