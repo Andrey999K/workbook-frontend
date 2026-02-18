@@ -2,7 +2,7 @@ import { Wrapper } from "@/src/components/Wrapper";
 import { Input } from "@/src/components/Input";
 import { Button } from "@/src/components/Button";
 
-export default function PageLogin() {
+export default function LoginPage() {
   return (
     <Wrapper>
       <div className="flex items-center justify-center -m-4 min-h-screen">

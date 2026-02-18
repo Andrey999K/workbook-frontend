@@ -11,11 +11,16 @@ export const getLevel = (exp: number) => {
     return {
       level: level + 10,
       progressLevel: (countExp / expForLevel) * 100,
+      expForLevel,
+      currentHpLevel: countExp,
     };
   } else {
+    const currentHpLevel = exp % 1000;
     return {
       level: Math.floor(exp / 1000) + 1,
-      progressLevel: (exp % 1000) / 10,
+      progressLevel: currentHpLevel / 10,
+      expForLevel: 1000,
+      currentHpLevel: currentHpLevel,
     };
   }
 };
