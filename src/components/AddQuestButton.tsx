@@ -1,10 +1,10 @@
 "use client";
 
-import { Icon } from "@/src/components/Icon";
 import { useState } from "react";
 import { useQuestsStore } from "../store";
 import { FormQuest } from "@/src/components/FormQuest";
 import { TaskRowType } from "@/src/types/TaskRow";
+import { CircleButton } from "@/src/components/common/CircleButton";
 
 export const AddQuestButton = () => {
   const [openWindow, setOpenWindow] = useState(false);
@@ -25,16 +25,9 @@ export const AddQuestButton = () => {
 
   if (!openWindow) {
     return (
-      <button
-        className="
-        fixed bottom-4 right-4 w-[56px] h-[56px] rounded-full flex items-center justify-center text-white
-        overflow-hidden text-white cursor-pointer
-      "
-        onClick={handleOpenWindow}
-      >
-        <div className="absolute bg-[#D9D9D9] opacity-10 w-full h-full"></div>
-        <Icon name="plus" width={18} height={18} />
-      </button>
+      <div className="fixed bottom-4 right-4">
+        <CircleButton onClick={handleOpenWindow} icon="plus" />
+      </div>
     );
   }
 
