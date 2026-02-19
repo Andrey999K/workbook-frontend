@@ -35,8 +35,8 @@ export default function ProfilePage() {
           </span>
         </div>
         <div className="flex items-center gap-4">
-          <CircleButton icon="list" />
-          <CircleButton icon="settings" />
+          <CircleButton href={"/quests"} icon="list" />
+          <CircleButton href={"/settings"} icon="settings" />
         </div>
       </div>
     </Wrapper>
