@@ -1,12 +1,12 @@
 "use client";
 
-import { HeaderQuests } from "@/src/components/HeaderQuests";
-import { TaskRow } from "@/src/components/TaskRow";
-import { AddQuestButton } from "@/src/components/AddQuestButton";
+import { HeaderQuests } from "@/src/components/UI/HeaderQuests";
+import { TaskRow } from "@/src/components/UI/TaskRow";
+import { AddQuestButton } from "@/src/components/UI/AddQuestButton";
 import { useQuestsStore } from "../../store";
 import { useHydration } from "@/src/hooks/useHydration";
-import { Loader } from "@/src/components/Loader";
-import { Wrapper } from "@/src/components/Wrapper";
+import { Loader } from "@/src/components/common/Loader";
+import { Wrapper } from "@/src/components/common/Wrapper";
 
 export default function QuestsPage() {
   const tasks = useQuestsStore((state) => state.tasks);

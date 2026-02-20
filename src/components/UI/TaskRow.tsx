@@ -1,9 +1,9 @@
 "use client";
 
 import { TaskRowType } from "@/src/types/TaskRow";
-import { useQuestsStore, useUserStore } from "../store";
+import { useQuestsStore, useUserStore } from "../../store";
 import { useState } from "react";
-import { FormQuest } from "@/src/components/FormQuest";
+import { FormQuest } from "@/src/components/UI/FormQuest";
 
 type TaskRowProps = {
   data: TaskRowType;

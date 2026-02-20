@@ -1,10 +1,10 @@
 "use client";
 
-import Image from "next/image";
-import { ProgressBar } from "@/src/components/ProgressBar";
-import { useUserStore } from "../store";
+import { ProgressBar } from "@/src/components/common/ProgressBar";
+import { useUserStore } from "../../store";
 import { getLevel } from "@/src/utils/getLevel";
 import Link from "next/link";
+import { Avatar } from "@/src/components/common/Avatar";
 
 export const HeaderQuests = () => {
   const userExp = useUserStore((state) => state.exp);
@@ -13,11 +13,8 @@ export const HeaderQuests = () => {
   return (
     <div className="flex items-center gap-2">
       <div className="w-full max-w-12 h-full">
-        <Link
-          href={"/profile"}
-          className="relative block w-12 h-12 bg-orange-500 rounded-full overflow-hidden"
-        >
-          <Image src="/avatar.jpg" alt="avatar" fill className="object-cover" />
+        <Link href={"/profile"}>
+          <Avatar />
         </Link>
       </div>
       <div className="w-full">

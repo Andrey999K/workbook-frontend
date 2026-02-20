@@ -1,11 +1,11 @@
 "use client";
 
-import { Wrapper } from "@/src/components/Wrapper";
-import Image from "next/image";
-import { ProgressBar } from "@/src/components/ProgressBar";
+import { Wrapper } from "@/src/components/common/Wrapper";
+import { ProgressBar } from "@/src/components/common/ProgressBar";
 import { CircleButton } from "@/src/components/common/CircleButton";
 import { useUserStore } from "@/src/store";
 import { getLevel } from "@/src/utils/getLevel";
+import { Avatar } from "@/src/components/common/Avatar";
 
 export default function ProfilePage() {
   const userExp = useUserStore((state) => state.exp);
@@ -16,14 +16,7 @@ export default function ProfilePage() {
     <Wrapper>
       <div className="flex flex-col items-center justify-between py-5 min-h-screen -my-4">
         <div className="flex flex-col gap-2 items-center">
-          <div className="relative block w-[168px] h-[168px] bg-orange-500 rounded-full overflow-hidden p-3">
-            <Image
-              src="/avatar.jpg"
-              alt="avatar"
-              fill
-              className="object-cover max-w-full max-h-full rounded-full"
-            />
-          </div>
+          <Avatar size={144} />
           <h3 className="font-bold text-5xl">Андрей</h3>
           <span className="font-bold text-base mt-3">{level} уровень</span>
         </div>
