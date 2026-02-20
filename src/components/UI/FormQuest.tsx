@@ -1,9 +1,9 @@
-import { Input } from "@/src/components/Input";
-import { Textarea } from "@/src/components/Textarea";
-import { Icon } from "@/src/components/Icon";
+import { Input } from "@/src/components/common/Input";
+import { Textarea } from "@/src/components/common/Textarea";
+import { Icon } from "@/src/components/common/Icon";
 import { ChangeEvent, MouseEvent, useState } from "react";
 import { TaskRowType } from "@/src/types/TaskRow";
-import { Button } from "@/src/components/Button";
+import { Button } from "@/src/components/common/Button";
 
 type TaskInput = Omit<TaskRowType, "id">;
 

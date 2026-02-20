@@ -1,4 +1,4 @@
-import { Wrapper } from "@/src/components/Wrapper";
+import { Wrapper } from "@/src/components/common/Wrapper";
 import { CircleButton } from "@/src/components/common/CircleButton";
 import Link from "next/link";
 

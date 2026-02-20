@@ -1,6 +1,6 @@
-import { Button } from "@/src/components/Button";
-import { Input } from "@/src/components/Input";
-import { Wrapper } from "@/src/components/Wrapper";
+import { Button } from "@/src/components/common/Button";
+import { Input } from "@/src/components/common/Input";
+import { Wrapper } from "@/src/components/common/Wrapper";
 
 export default function SignupPage() {
   return (

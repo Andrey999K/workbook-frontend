@@ -1,8 +1,8 @@
 "use client";
 
-import { Wrapper } from "@/src/components/Wrapper";
+import { Wrapper } from "@/src/components/common/Wrapper";
 import Image from "next/image";
-import { ProgressBar } from "@/src/components/ProgressBar";
+import { ProgressBar } from "@/src/components/common/ProgressBar";
 import { CircleButton } from "@/src/components/common/CircleButton";
 import { useUserStore } from "@/src/store";
 import { getLevel } from "@/src/utils/getLevel";

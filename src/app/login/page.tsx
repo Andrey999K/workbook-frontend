@@ -1,6 +1,6 @@
-import { Wrapper } from "@/src/components/Wrapper";
-import { Input } from "@/src/components/Input";
-import { Button } from "@/src/components/Button";
+import { Wrapper } from "@/src/components/common/Wrapper";
+import { Input } from "@/src/components/common/Input";
+import { Button } from "@/src/components/common/Button";
 
 export default function LoginPage() {
   return (

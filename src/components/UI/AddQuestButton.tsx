@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { useQuestsStore } from "../store";
-import { FormQuest } from "@/src/components/FormQuest";
+import { useQuestsStore } from "../../store";
+import { FormQuest } from "@/src/components/UI/FormQuest";
 import { TaskRowType } from "@/src/types/TaskRow";
 import { CircleButton } from "@/src/components/common/CircleButton";
 

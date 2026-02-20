@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { ProgressBar } from "@/src/components/ProgressBar";
-import { useUserStore } from "../store";
+import { ProgressBar } from "@/src/components/common/ProgressBar";
+import { useUserStore } from "../../store";
 import { getLevel } from "@/src/utils/getLevel";
 import Link from "next/link";
 
