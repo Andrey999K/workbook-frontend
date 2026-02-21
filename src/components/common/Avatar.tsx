@@ -2,10 +2,11 @@ import Image from "next/image";
 import { clsx } from "clsx";
 
 type AvatarProps = {
+  src?: string;
   size?: number;
 };
 
-export const Avatar = ({ size }: AvatarProps) => {
+export const Avatar = ({ src, size }: AvatarProps) => {
   const classNames = clsx(
     "relative block bg-orange-500 rounded-full overflow-hidden",
     size ? `w-[${size}px] h-[${size}px]` : "w-12 h-12"
@@ -28,7 +29,7 @@ export const Avatar = ({ size }: AvatarProps) => {
       </div>
       <div className="relative w-full h-full rounded-full overflow-hidden">
         <Image
-          src="/avatar_real.jpg"
+          src={src || "/avatar.jpg"}
           alt="avatar"
           fill
           className="object-cover w-full h-full"
