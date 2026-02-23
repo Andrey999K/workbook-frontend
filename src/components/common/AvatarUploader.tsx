@@ -1,11 +1,16 @@
+"use client";
+
 import { ChangeEvent, useState } from "react";
 import { Avatar } from "@/src/components/common/Avatar";
 import { Icon } from "@/src/components/common/Icon";
 
 export const AvatarUploader = () => {
-  const [preview, setPreview] = useState<string | null>(() =>
-    localStorage.getItem("avatar")
-  );
+  const [preview, setPreview] = useState<string | null>(() => {
+    if (typeof window === "undefined") return null;
+    return localStorage.getItem("avatar");
+  });
+
+  console.log("typeof window", typeof window);
 
   const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];

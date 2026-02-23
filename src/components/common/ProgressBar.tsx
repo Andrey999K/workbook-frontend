@@ -17,7 +17,6 @@ export const ProgressBar = ({
     "border-solid border-[1px] border-gray-500 p-[2px]",
     size === "small" ? "rounded-sm" : "rounded-xs"
   );
-  console.log("size", size);
   return (
     <div className={classNamesBorder}>
       <div style={{ width: `${percent}%` }} className={classNames}></div>
