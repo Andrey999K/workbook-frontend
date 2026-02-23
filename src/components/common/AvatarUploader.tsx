@@ -7,22 +7,43 @@ export const AvatarUploader = () => {
     localStorage.getItem("avatar")
   );
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = async (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // if (file.size > 100 * 1024) {
-    //   console.log("Файл больше 100KB:", file.size, "байт");
-    //   return;
-    // }
+    const base64 = await compressAndEncodeAvatar(file);
+    setPreview(base64);
+    localStorage.setItem("avatar", base64);
+  };
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      const base64 = reader.result as string; // "data:image/png;base64,..."
-      setPreview(base64);
-      localStorage.setItem("avatar", base64);
-    };
-    reader.readAsDataURL(file);
+  const compressAndEncodeAvatar = async (file: File): Promise<string> => {
+    if (file.size <= 100 * 1024) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result as string);
+        reader.readAsDataURL(file);
+      });
+    }
+
+    return new Promise((resolve) => {
+      const img = new Image();
+      const url = URL.createObjectURL(file);
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+
+        const ratio = Math.min(800 / img.width, 800 / img.height);
+        const width = img.width * ratio;
+        const height = img.height * ratio;
+
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext("2d")?.drawImage(img, 0, 0, width, height);
+
+        URL.revokeObjectURL(url);
+        resolve(canvas.toDataURL("image/jpeg", 0.95));
+      };
+      img.src = url;
+    });
   };
 
   return (
