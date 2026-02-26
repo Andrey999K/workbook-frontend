@@ -6,15 +6,18 @@ export default function SettingsPage() {
   const buttons = [
     {
       text: "Поддержать авторов",
-      href: "/support",
+      href: "https://boosty.to/andrey999k",
+      color: "important",
     },
     {
       text: "Изменить аватар",
       href: "/change-avatar",
+      color: "default",
     },
     {
       text: "Изменить имя",
       href: "/change-name",
+      color: "default",
     },
   ];
 
@@ -27,8 +30,15 @@ export default function SettingsPage() {
             <Link
               key={button.text}
               href={button.href}
-              className="py-12 text-center bg-[#232E48] rounded-sm hover:bg-[#2B3A5C] transition-colors"
+              // className="py-12 text-center bg-[#232E48] rounded-sm hover:bg-[#2B3A5C] transition-colors"
               // className="py-12 text-center bg-[#232E48] rounded-sm hover:bg-[#FFDA5E] hover:text-black transition-colors"
+              className={
+                "py-12 text-center rounded-sm transition-colors " +
+                (button.color === "important"
+                  ? "bg-[#FFDA5E] text-black"
+                  : "bg-[#232E48]")
+              }
+              target={button.color === "important" ? "_blank" : ""}
             >
               {button.text}
             </Link>

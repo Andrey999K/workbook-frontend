@@ -22,6 +22,10 @@ export const AvatarUploader = () => {
   };
 
   const compressAndEncodeAvatar = async (file: File): Promise<string> => {
+    // if (file.size > 20 * 1024 * 1024) {
+    //   alert("Размер файле свыше 20мб");
+    // }
+
     if (file.size <= 100 * 1024) {
       return new Promise((resolve) => {
         const reader = new FileReader();
