@@ -9,6 +9,7 @@ import { Loader } from "@/src/components/common/Loader";
 import { Wrapper } from "@/src/components/common/Wrapper";
 import { AddTestTaskButton } from "@/src/components/UI/AddTestTaskButton";
 import { AnimatePresence } from "motion/react";
+import { isDev } from "@/src/utils/isDev";
 
 export default function QuestsPage() {
   const tasks = useQuestsStore((state) => state.tasks);
@@ -38,9 +39,11 @@ export default function QuestsPage() {
       <div className="mt-5">
         <h2 className="font-bold text-2xl text-gray-500">Мои Квесты</h2>
         <div className="mt-4 flex flex-col">{renderQuests()}</div>
-        <div className="mt-2 flex justify-end">
-          <AddTestTaskButton />
-        </div>
+        {isDev() && (
+          <div className="mt-2 flex justify-end">
+            <AddTestTaskButton />
+          </div>
+        )}
       </div>
       <AddQuestButton />
     </Wrapper>
