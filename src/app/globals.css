@@ -12,6 +12,27 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  --animate-float-xp: float-xp 1s ease-out forwards;
+
+  @keyframes float-xp {
+    0%   { opacity: 1;   translate: 0 0;   scale: 1; }
+    60%  { opacity: 1;   translate: 0 -30px; scale: 1.2; }
+    100% { opacity: 0;   translate: 0 -50px; scale: 0.9; }
+  }
+}
+
+.task-row {
+  opacity: 1;
+  overflow: hidden;
+  transition: height 1s ease, opacity 1s ease, margin 1s ease;
+}
+
+.task-row-exit {
+  opacity: 0;
+  margin: 0 !important;
+}
+
 /*@media (prefers-color-scheme: dark) {*/
 /*  :root {*/
 /*    --background: #0a0a0a;*/
